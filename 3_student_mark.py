@@ -1,7 +1,6 @@
 import os
 import math
 import numpy as np
-import curses
 
 class Student:
     def __init__(self, student_id, name, dob):
@@ -162,20 +161,7 @@ class StudentMarkManagement:
                 mark = float(line.split(", ")[1].split(": ")[1])
                 self.courses[-1].marks[student_id] = mark
 
-    def decorate_ui(self):
-        def draw_menu(stdscr):
-            curses.start_color()
-            curses.init_pair(1, curses.COLOR_CYAN, curses.COLOR_BLACK)
-            stdscr.clear()
-            stdscr.attron(curses.color_pair(1))
-            stdscr.addstr(0, 0, "Welcome to the Student Mark Management System")
-            stdscr.attroff(curses.color_pair(1))
-            stdscr.refresh()
-            stdscr.getch()
-        curses.wrapper(draw_menu)
-
     def run(self):
-        self.decorate_ui()
         while True:
             print("\nMenu:")
             print("1. List courses")
