@@ -1,6 +1,6 @@
 Students:
 Student: Nguyen Lam Tung, ID: 23BI14446, DoB: 11/04/2005
-Student: Tran Thi Hoa, ID: 23BI14447, DoB: 15/08/2005
+Student: Nguyen Minh Cuong, ID: 23BI14446, DoB: 15/08/2005
 Student: Le Van Nam, ID: 23BI14448, DoB: 20/01/2005
 
 Courses:
@@ -11,13 +11,13 @@ Course: Basics Programming, ID: ICT1.001
 Marks:
   Course ID: MAT1.001
     Student ID: 23BI14446, Mark: 20
-    Student ID: 23BI14447, Mark: 10
+    Student ID: 23BI14467, Mark: 10
     Student ID: 23BI14448, Mark: 1
   Course ID: PHY1.001
     Student ID: 23BI14446, Mark: 20
-    Student ID: 23BI14447, Mark: 20
+    Student ID: 23BI14467, Mark: 20
     Student ID: 23BI14448, Mark: 20
   Course ID: CSC1.001
     Student ID: 23BI14446, Mark: 15.01
-    Student ID: 23BI14447, Mark: 15.01
+    Student ID: 23BI14467, Mark: 15.01
     Student ID: 23BI14448, Mark: 15.01
