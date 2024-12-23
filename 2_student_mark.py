@@ -160,5 +160,5 @@ class StudentMarkManagement:
                 print("Invalid option. Please try again.")
 
 if __name__ == "__main__":
-    app = StudentMarkManagement()
-    app.run()
+    prog = StudentMarkManagement()
+    prog.run()
