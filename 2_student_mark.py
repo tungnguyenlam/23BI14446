@@ -1,9 +1,12 @@
+import os
+
 class Student:
     def __init__(self, student_id, name, dob):
         self.id = student_id
         self.name = name
         self.dob = dob
 
+    @staticmethod
     def input():
         student_id = input("Enter Student ID: ")
         name = input("Enter Student Name: ")
@@ -19,6 +22,7 @@ class Course:
         self.name = name
         self.marks = {}
 
+    @staticmethod
     def input():
         course_id = input("Enter Course ID: ")
         name = input("Enter Course Name: ")
@@ -45,6 +49,7 @@ class StudentMarkManagement:
     def __init__(self):
         self.students = []
         self.courses = []
+        self.load_data()
 
     def input_students(self):
         num_students = int(input("Enter the number of students: "))
@@ -101,6 +106,35 @@ class StudentMarkManagement:
                 for student_id, mark in course.marks.items():
                     file.write(f"  Student ID: {student_id}, Mark: {mark}\n")
 
+    def load_data(self):
+        if not os.path.exists("student_mark.txt"):
+            return
+        with open("student_mark.txt", "r") as file:
+            lines = file.readlines()
+
+        mode = None
+        for line in lines:
+            line = line.strip()
+            if line == "Students:":
+                mode = "students"
+            elif line == "Courses:":
+                mode = "courses"
+            elif mode == "students" and line:
+                parts = line.split(", ")
+                student_id = parts[1].split(": ")[1]
+                name = parts[0].split(": ")[1]
+                dob = parts[2].split(": ")[1]
+                self.students.append(Student(student_id, name, dob))
+            elif mode == "courses" and line and not line.startswith("Marks:"):
+                parts = line.split(", ")
+                course_id = parts[1].split(": ")[1]
+                name = parts[0].split(": ")[1]
+                self.courses.append(Course(course_id, name))
+            elif line.startswith("  Student ID:"):
+                student_id = line.split(", ")[0].split(": ")[1]
+                mark = float(line.split(", ")[1].split(": ")[1])
+                self.courses[-1].marks[student_id] = mark
+
     def run(self):
         while True:
             print("\nMenu:")
@@ -127,6 +161,4 @@ class StudentMarkManagement:
 
 if __name__ == "__main__":
     app = StudentMarkManagement()
-    app.input_students()
-    app.input_courses()
     app.run()

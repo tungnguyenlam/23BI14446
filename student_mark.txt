@@ -1,0 +1,7 @@
+Students:
+Student: Nguyen Lam Tung, ID: 23BI14446, DoB: 11/04/2005
+
+Courses:
+Course: Calculus I, ID: MAT1.001
+Marks:
+  Student ID: 23BI14446, Mark: 12.9
